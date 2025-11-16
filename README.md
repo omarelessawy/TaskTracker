@@ -16,8 +16,10 @@ Status & Priority: Tasks include OPEN/CLOSED status and HIGH/MEDIUM/LOW priority
 
 Global Error Handling: Provides consistent 400 Bad Request responses for validation errors.
 
+
 🛠️ Technology Stack
-<img width="820" height="376" alt="image" src="https://github.com/user-attachments/assets/f2ef2d19-72c5-4e7f-bf4a-ce22d3ece6a3" />
+
+<img width="273" height="125" alt="image" src="https://github.com/user-attachments/assets/f2ef2d19-72c5-4e7f-bf4a-ce22d3ece6a3" />
 
 
 🌐 API Endpoints Overview
