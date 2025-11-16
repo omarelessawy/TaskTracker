@@ -2,6 +2,7 @@
 A robust Task Tracking RESTful API built with Spring Boot and PostgreSQL. This application allows users to manage multiple task lists and the individual tasks within them, providing features like task progress calculation and basic error handling.
 
 ✨ Features
+
 Task List Management: Create, read, update, and delete (CRUD) task lists.
 
 Task Management: Create, read, update, and delete (CRUD) tasks within specific task lists.
