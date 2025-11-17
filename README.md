@@ -1,36 +1,50 @@
-🚀 Task Tracker API
-A robust Task Tracking RESTful API built with Spring Boot and PostgreSQL. This application allows users to manage multiple task lists and the individual tasks within them, providing features like task progress calculation and basic error handling.
+# 🚀 Task Tracker API
 
-✨ Features
+A robust and efficient RESTful API for comprehensive task management, built using **Spring Boot** and **PostgreSQL**. This application provides a solution for managing multiple hierarchical task lists, tracking progress, and ensuring data integrity with reliable persistence and global error handling.
 
-Task List Management: Create, read, update, and delete (CRUD) task lists.
+## ✨ Key Features
 
-Task Management: Create, read, update, and delete (CRUD) tasks within specific task lists.
+* **Task List Management (CRUD):** Complete functionality to **C**reate, **R**ead, **U**pdate, and **D**elete task lists.
+* **Task Management (CRUD):** Full CRUD operations for individual tasks nested within specific task lists.
+* **Hierarchical Structure:** Tasks are logically nested under their respective task lists, accessed via paths like `/task-lists/{id}/tasks`.
+* **Progress Tracking:** Automatically calculates and reports the progress (percentage of `CLOSED` tasks) for each task list.
+* **Persistence:** Reliable data storage is ensured using **PostgreSQL** via **Spring Data JPA**.
+* **Status & Priority:** Tasks support essential fields:
+    * **Status:** `OPEN` or `CLOSED`.
+    * **Priority:** `HIGH`, `MEDIUM`, or `LOW`.
+* **Global Error Handling:** Consistent and predictable error responses, providing a uniform `400 Bad Request` for validation errors across the API.
 
-Hierarchical Structure: Tasks are nested under their respective task lists (/task-lists/{id}/tasks).
+## 🛠️ Technology Stack
 
-Progress Tracking: Calculates and reports the progress (percentage of closed tasks) for each task list.
+| Category | Technology | Purpose |
+| :--- | :--- | :--- |
+| **Framework** | Spring Boot | Provides a rapid, robust foundation for the RESTful API. |
+| **Database** | PostgreSQL | Reliable and scalable relational database for persistent storage. |
+| **Data Access** | Spring Data JPA | Simplifies ORM and database interactions with repositories. |
+| **Language** | Java | The core programming language for the application. |
 
-Persistence: Uses PostgreSQL for reliable data storage via Spring Data JPA.
+## 🌐 API Endpoints Overview
 
-Status & Priority: Tasks include OPEN/CLOSED status and HIGH/MEDIUM/LOW priority.
+The base URL for all requests is: `http://localhost:8080/api`
 
-Global Error Handling: Provides consistent 400 Bad Request responses for validation errors.
+### Task List Endpoints (CRUD)
 
+| HTTP Method | Path | Description |
+| :--- | :--- | :--- |
+| `GET` | `/task-lists` | Retrieve all task lists. |
+| `POST` | `/task-lists` | Create a new task list. |
+| `GET` | `/task-lists/{id}` | Retrieve a specific task list by ID, including its calculated progress. |
+| `PUT` | `/task-lists/{id}` | Update an existing task list. |
+| `DELETE` | `/task-lists/{id}` | Delete a task list. |
 
-🛠️ Technology Stack
+### Task Endpoints (Nested CRUD)
 
-<img width="510" height="288" alt="image" src="https://github.com/user-attachments/assets/f2ef2d19-72c5-4e7f-bf4a-ce22d3ece6a3" />
+Tasks are nested under their parent task lists, adhering to the hierarchical structure.
 
-
-🌐 API Endpoints Overview
-The base URL for all requests is http://localhost:8080/api.
-
-Task List Endpoints: 
-
-<img width="510" height="288" alt="image" src="https://github.com/user-attachments/assets/f264caaf-69c4-4a0f-8669-cbaacdd882b5" />
-
-Task Endpoints:
-
-<img width="510" height="288" alt="image" src="https://github.com/user-attachments/assets/2c932cb3-41ac-4dd4-9aa3-a578aff83865" />
-
+| HTTP Method | Path | Description |
+| :--- | :--- | :--- |
+| `GET` | `/task-lists/{taskListId}/tasks` | Retrieve all tasks belonging to a specific task list. |
+| `POST` | `/task-lists/{taskListId}/tasks` | Create a new task within the specified task list. |
+| `GET` | `/task-lists/{taskListId}/tasks/{taskId}` | Retrieve a specific task by its ID. |
+| `PUT` | `/task-lists/{taskListId}/tasks/{taskId}` | Update an existing task's details, status, or priority. |
+| `DELETE` | `/task-lists/{taskListId}/tasks/{taskId}` | Delete a specific task. |
